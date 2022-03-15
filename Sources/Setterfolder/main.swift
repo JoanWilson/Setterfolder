@@ -19,11 +19,9 @@ import TSCUtility
 
 
 let app = InterfaceProgram()
-var input: String!
+var input: String = ""
 app.setOption(option: "default")
 var optionSetted: String = app.getOption()
-
-print(app.getName())
 
 repeat{
     app.showMessageOptions()
@@ -37,30 +35,32 @@ repeat{
             print("O nome do diretório permite o programa saber o diretório da sua pasta Downloads e Desktop, por favor digite seu nome: ")
             input = readLine()!
             app.setOption(option: input)
-            print("==================================================================")
+            lineBar()
             app.setName(name: input)
             print("Nome alterado com sucesso, \(app.getName())! ✅")
         case "2":
-            print("==================================================================")
+            lineBar()
             print("Seu Desktop será organizado...")
             app.loadingAnimation()
         case "3":
-            print("==================================================================")
+            lineBar()
             print("Sua pasta Downloads será organizada...")
             app.loadingAnimation()
         case "4":
-            print("==================================================================")
+            lineBar()
             print(app.credits())
         case "5":
-            print("==================================================================")
+            lineBar()
             print("Muito obrigado!! Até logo!")
         default:
-            print("==================================================================")
+            lineBar()
             print("Valor Inválido!")
     }
 } while (app.getOption() != "5")
 
 
 
-
+func lineBar(){
+    print("==================================================================")
+}
 

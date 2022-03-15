@@ -8,9 +8,9 @@
 import Foundation
 
 
-class User {
+public class User {
         
-    var directoryName: String = "undefined"
+    private var directoryName: String = "undefined"
     
     init() {
     }
