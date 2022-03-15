@@ -11,12 +11,12 @@ import TSCBasic
 import TSCUtility
 
 class InterfaceProgram: User {
-    var option: String = "default"
-    var input: String = "none"
+    private var option: String = "default"
+    private var input: String = "none"
     
     
     
-    func showMessageOptions(){
+    public func showMessageOptions(){
         print(
     """
     
@@ -35,19 +35,19 @@ class InterfaceProgram: User {
     }
     
     
-    func organiseDesktop(){
+    public func organiseDesktop(){
         return
     }
     
-    func organiseDownloads(){
+    public func organiseDownloads(){
         return
     }
     
-    func credits() -> String{
+    public func credits() -> String{
         return "Project made by Joan Wilson Martins de Oliveira, Apple Developer Academy Intern | IFCE |"
     }
     
-    func loadingAnimation() {
+    public func loadingAnimation() {
         let animation = PercentProgressAnimation(
           stream: stdoutStream,
           header: "Carregando operação...✨")
@@ -62,11 +62,11 @@ class InterfaceProgram: User {
         print("Feito! 🚀")
     }
     
-    func getOption() -> String{
+    public func getOption() -> String{
         return self.option
     }
     
-    func setOption(option: String){
+    public func setOption(option: String){
         self.option = option
     }
 
