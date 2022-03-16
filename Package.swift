@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Setterfolder",
+    platforms: [.macOS(.v10_12)],
     dependencies: [
         .package(url: "https://github.com/apple/swift-tools-support-core.git", branch: "main"),
     ],

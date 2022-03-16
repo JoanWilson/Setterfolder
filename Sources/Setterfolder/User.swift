@@ -10,9 +10,10 @@ import Foundation
 
 public class User {
         
-    private var directoryName: String = "undefined"
+    private var directoryName: String
     
     init() {
+        self.directoryName = "undefined"
     }
     
     public func getName() -> String {
