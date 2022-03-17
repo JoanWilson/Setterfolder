@@ -50,10 +50,10 @@ class InterfaceProgram {
     public func loadingAnimation() {
         let animation = PercentProgressAnimation(
           stream: stdoutStream,
-          header: "Carregando operação...✨")
+          header: "⏱ Organizando sua pasta...")
 
-        for i in 0..<100 {
-          let second: Double = 1_000_000
+        for i in 0...10 {
+          let second: Double = 500_000
           usleep(UInt32(second * 0.05))
           animation.update(step: i, total: 100, text: "Carregando..")
         }
