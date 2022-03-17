@@ -7,27 +7,23 @@
 import Foundation
 import Cocoa
 
-class Operations: NSObject
+class Operations
 {
     
-    init(user: User)
-    {
-        self.user = user
-    }
-    
-    let user: User
     let fileManager = FileManager.default
     
     func organise(path: String?) throws
     {
-        let defaultPath = fileManager.homeDirectoryForCurrentUser.appendingPathComponent("Downloads").absoluteString
-        let pathURL = URL(fileURLWithPath: path ?? defaultPath)
-        var fileTypesDictionary: [String : Array<String>] =
+        let commonPath = fileManager.homeDirectoryForCurrentUser
+        let defaultPath = commonPath.appendingPathComponent("Downloads").absoluteString
+        let pathURL = URL(fileURLWithPath: path?.trimmingCharacters(in: .whitespacesAndNewlines) ?? defaultPath)
+        let fileTypesDictionary: [String : Array<String>] =
         [
-            "Pictures": ["jpg", "jpeg", "jfif", "pjpeg", "pjp", "psd", "webp", "png", "svg"],
+            "Pictures": ["jpg", "jpeg", "jfif", "pjpeg", "pjp", "psd", "webp", "png", "svg", "gif"],
             "Music": ["3gp", "aa", "aac", "aax", "act", "aiff", "alac", "amr", "ape", "au", "awb", "flac", "m4p", "mp3", "webm", "ogg", "wav"],
             "Movies": ["mp4", "mov", "flv", "avi"],
-            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "exe", "ppt"]
+            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx"],
+            "Installers": ["dmg", "exe"]
         ]
         let folderFiles = try fileManager.contentsOfDirectory(
             at: pathURL,
@@ -37,6 +33,12 @@ class Operations: NSObject
                 .skipsHiddenFiles
             ]
         )
+        
+        if folderFiles.isEmpty {
+            print("Seu diretório está vazio!")
+            return
+        }
+        
         for (key, values) in fileTypesDictionary
         {
             for value in values
@@ -48,7 +50,7 @@ class Operations: NSObject
                     
                     for url in filter
                     {
-                        try fileManager.moveItem(at: url, to: pathURL.appendingPathComponent(url.lastPathComponent))
+                        try fileManager.moveItem(at: url, to: commonPath.appendingPathComponent(key).appendingPathComponent(url.lastPathComponent))
                     }
             }
         }

@@ -10,7 +10,7 @@ import Darwin
 import TSCBasic
 import TSCUtility
 
-class InterfaceProgram: User {
+class InterfaceProgram {
     private var option: String = "default"
     private var input: String = "none"
     
@@ -24,9 +24,9 @@ class InterfaceProgram: User {
     Seja Bem-vindo ao SetterFolder, o organizador de pastas para macOS,
     Para começar, digite uma das opções abaixo:
     
-    1 - Configurar seu nome de diretório
-    2 - Organizar Desktop
-    3 - Organizar Downloads
+    1 - Organizar Desktop
+    2 - Organizar Downloads
+    3 - Organizar outra pasta
     4 - Créditos
     5 - Sair
     
