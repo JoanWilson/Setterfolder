@@ -10,13 +10,13 @@ import Darwin
 import TSCBasic
 import TSCUtility
 
-class InterfaceProgram {
-    private var option: String = "default"
-    private var input: String = "none"
+class Interface {
+    var option: String = "default"
+    var input: String = "none"
     
     
     
-    public func showMessageOptions(){
+    func showMessageOptions(){
         print(
     """
     
@@ -35,26 +35,18 @@ class InterfaceProgram {
     }
     
     
-    public func organiseDesktop(){
-        return
-    }
-    
-    public func organiseDownloads(){
-        return
-    }
-    
-    public func credits() -> String{
+    func credits() -> String{
         return "Project made by Joan Wilson Martins de Oliveira, Apple Developer Academy Intern | IFCE |"
     }
     
-    public func loadingAnimation() {
+    func loadingAnimation() {
         let animation = PercentProgressAnimation(
           stream: stdoutStream,
           header: "⏱ Organizando sua pasta...")
 
-        for i in 0...10 {
-          let second: Double = 500_000
-          usleep(UInt32(second * 0.05))
+        for i in 0...100 {
+          let second: Double = 1_000_000
+            usleep(UInt32(second * 0.0051))
           animation.update(step: i, total: 100, text: "Carregando..")
         }
 
@@ -62,11 +54,74 @@ class InterfaceProgram {
         print("Feito! 🚀")
     }
     
-    public func getOption() -> String{
+    func showOption(folder: String) {
+        self.lineBar()
+        self.loadingAnimation()
+        print("\(folder), será organizada agora!")
+        
+    }
+    
+    
+    func optionDesktopOrganise() {
+        self.lineBar()
+        self.showOption(folder: "Desktop")
+        do {
+            try operation.organise(path: "/Users/joanwilsonoliveira/Desktop")
+        } catch {
+            print("Erro ao organizar sua pasta")
+        }
+    }
+    
+    func optionDownloadOrganise() {
+        self.lineBar()
+        self.showOption(folder: "Downloads")
+        do {
+            try operation.organise(path: "/Users/joanwilsonoliveira/Downloads")
+        } catch {
+            print("Erro ao organizar sua pasta")
+        }
+    }
+    
+    func optionAnyFolderOrganise() {
+        self.lineBar()
+        print("Digite o caminho da pasta ex: '/Users/fulano/pastabagunçada")
+        let pathUserString = readLine()!.trimmingCharacters(in: .whitespacesAndNewlines)
+        if pathUserString.isEmpty {
+            print("Strings vazias não são válidas")
+        } else {
+            do {
+                app.loadingAnimation()
+                try operation.organise(path: pathUserString)
+            } catch {
+                print("Path não encontrado!")
+            }
+        }
+    }
+    
+    func optionShowCredits() {
+        self.lineBar()
+        print(self.credits())
+    }
+
+    func optionLeaveProgram() {
+        self.lineBar()
+        print("Muito obrigado!! Até logo!")
+    }
+    
+    func optionWrongValue() {
+        self.lineBar()
+        print("Valor Inválido!")
+    }
+    
+    func lineBar(){
+        print("==================================================================")
+    }
+    
+    func getOption() -> String{
         return self.option
     }
     
-    public func setOption(option: String){
+    func setOption(option: String){
         self.option = option
     }
 
