@@ -20,6 +20,7 @@ var input: String!
 
 class Program {
     
+    //Mantém o programa em Loop
     func startProgram() throws {
         repeat{
             self.showMenu()
@@ -27,8 +28,10 @@ class Program {
         
     }
     
-    
+    //Define as opções
     func showMenu() {
+        
+        //O propósito de existir o método setOption, é para facilitar nos testes automatizados
         app.showMessageOptions()
         input = readLine()!
         app.setOption(option: input)

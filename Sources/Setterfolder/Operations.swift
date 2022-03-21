@@ -44,7 +44,7 @@ class Operations {
             return
         }
         
-        //
+        //Move cada arquivo da pasta escolhida para seus respectivos diretórios
         for (key, values) in fileTypesDictionary {
             for value in values {
                 let filter = try folderFiles.filter({(path: URL) throws -> Bool in
