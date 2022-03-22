@@ -48,7 +48,7 @@ class Operations {
         for (key, values) in fileTypesDictionary {
             for value in values {
                 let filter = try folderFiles.filter({(path: URL) throws -> Bool in
-                        return path.pathExtension.lowercased() == value.replacingOccurrences(of: ".", with: "").lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+                    return path.pathExtension.lowercased() == value.replacingOccurrences(of: ".", with: "").lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
                     })
                 
                 for url in filter {
@@ -57,4 +57,50 @@ class Operations {
             }
         }
     }
+    
+    //Cria um arquivo em uma pasta especifica
+    func createAFileInAFolder(file: String, folderPath: String) {
+        let fileManager = FileManager.default
+        let path = NSHomeDirectory() + "/\(folderPath)/\(file)"
+        fileManager.createFile(atPath: path, contents: nil, attributes: nil)
+    }
+    
+    //Remove um arquivo de uma pasta especifica
+    func removeAFileInAFolder(file: String, folderPath: String) {
+        let fileManager = FileManager.default
+        let path = NSHomeDirectory() + "/\(folderPath)/\(file)"
+        do {
+            try fileManager.removeItem(atPath: path)
+        } catch {
+            print("Não foi possivel excluir o arquivo")
+            print(error)
+        }
+    }
+    
+    //Encontra um arquivo de um diretório de uma pasta dala e retorna true e for encontrado
+    func findAFileInAFolder(file: String, folderPath: String) -> Bool {
+        var fileWasFound = false
+        let fileManager = FileManager.default
+        let folderFiles = try! fileManager.contentsOfDirectory(
+            at: fileManager.homeDirectoryForCurrentUser.appendingPathComponent(folderPath).absoluteURL,
+            includingPropertiesForKeys: nil,
+            options: [
+                .skipsHiddenFiles,
+                .skipsSubdirectoryDescendants
+            ]
+
+        )
+        for item in folderFiles {
+            let pathString = item.lastPathComponent
+            if pathString == file {
+                fileWasFound = true
+            }
+        }
+        
+        return fileWasFound
+    }
+
+    
+    
+    
 }

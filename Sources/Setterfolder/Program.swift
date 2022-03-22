@@ -39,19 +39,21 @@ class Program {
         
         switch app.getOption() {
             case "1":
-                app.optionDesktopOrganise()
+                app.moveFilesFromDesktop()
             case "2":
-                app.optionDownloadOrganise()
+                app.moveFilesFromDownloads()
             case "3":
-                app.optionAnyFolderOrganise()
+                app.moveFilesFromAnyDirectory()
             case "4":
-                app.optionShowCredits()
+                app.showCredits()
             case "5":
-                app.optionLeaveProgram()
+                app.leaveProgram()
             default:
-                app.optionWrongValue()
+            app.wrongValueTreatment()
         }
     }
+    
+    
     
 }
     

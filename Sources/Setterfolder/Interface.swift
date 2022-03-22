@@ -19,10 +19,10 @@ class Interface {
     func showMessageOptions(){
         print(
     """
-    
-    ==================================================================
-    Seja Bem-vindo ao SetterFolder, o organizador de pastas para macOS,
-    Para começar, digite uma das opções abaixo:
+    ==============================================
+    Seja Bem-vindo ao SetterFolder, o organizador
+    de pastas para macOS,Para começar, digite
+    uma das opções abaixo:
     
     1 - Organizar Desktop
     2 - Organizar Downloads
@@ -33,7 +33,6 @@ class Interface {
     Sua opção:
     """)
     }
-    
     
     func credits() -> String{
         return "Project made by Joan Wilson Martins de Oliveira, Apple Developer Academy Intern | IFCE |"
@@ -61,18 +60,18 @@ class Interface {
         
     }
     
-    
-    func optionDesktopOrganise() {
+    func moveFilesFromDesktop(){
         self.lineBar()
         self.showOption(folder: "Desktop")
         do {
             try operation.organise(path: "/Users/joanwilsonoliveira/Desktop")
         } catch {
             print("Erro ao organizar sua pasta")
+            
         }
     }
     
-    func optionDownloadOrganise() {
+    func moveFilesFromDownloads() {
         self.lineBar()
         self.showOption(folder: "Downloads")
         do {
@@ -82,7 +81,7 @@ class Interface {
         }
     }
     
-    func optionAnyFolderOrganise() {
+    func moveFilesFromAnyDirectory() {
         self.lineBar()
         print("Digite o caminho da pasta ex: '/Users/fulano/pastabagunçada")
         let pathUserString = readLine()!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -98,17 +97,17 @@ class Interface {
         }
     }
     
-    func optionShowCredits() {
+    func showCredits() {
         self.lineBar()
         print(self.credits())
     }
 
-    func optionLeaveProgram() {
+    func leaveProgram() {
         self.lineBar()
         print("Muito obrigado!! Até logo!")
     }
     
-    func optionWrongValue() {
+    func wrongValueTreatment() {
         self.lineBar()
         print("Valor Inválido!")
     }
