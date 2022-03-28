@@ -25,8 +25,7 @@ class Operations {
             "Pictures": ["jpg", "jpeg", "jfif", "pjpeg", "pjp", "psd", "webp", "png", "svg", "gif"],
             "Music": ["3gp", "aa", "aac", "aax", "act", "aiff", "alac", "amr", "ape", "au", "awb", "flac", "m4p", "mp3", "webm", "ogg", "wav"],
             "Movies": ["mp4", "mov", "flv", "avi"],
-            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx"],
-            "Installers": ["dmg", "exe"]
+            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx"]
         ]
         
         //Armazenamento de todos os paths do diretório a ser organizado
@@ -39,10 +38,13 @@ class Operations {
             ]
         )
         
+        
+        
         if folderFiles.isEmpty {
             print("Seu diretório está vazio!")
             return
         }
+        
         
         //Move cada arquivo da pasta escolhida para seus respectivos diretórios
         for (key, values) in fileTypesDictionary {

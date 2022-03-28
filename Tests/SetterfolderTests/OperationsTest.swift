@@ -27,21 +27,22 @@ class OperationsTest: XCTestCase {
         let programInterface = Interface()
         sut.createAFileInAFolder(file:testFile, folderPath: "Downloads")
         programInterface.moveFilesFromDownloads()
-        let fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
+        var fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
         
         XCTAssertTrue(fileWasFound)
+        fileWasFound = false
+
     }
     
     func test_moveItemFromDesktop_shouldBeMovedtoDocumentsFolder() {
         let programInterface = Interface()
         sut.createAFileInAFolder(file:testFile, folderPath: "Desktop")
         programInterface.moveFilesFromDesktop()
-        let fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
+        var fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
 
         XCTAssertTrue(fileWasFound)
+        fileWasFound = false
     }
     
     
-    
-
 }
