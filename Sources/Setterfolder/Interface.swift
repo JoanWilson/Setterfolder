@@ -24,11 +24,9 @@ class Interface {
     de pastas para macOS,Para começar, digite
     uma das opções abaixo:
     
-    1 - Organizar Desktop
-    2 - Organizar Downloads
-    3 - Organizar outra pasta
-    4 - Créditos
-    5 - Sair
+    1 - Organizar sua pasta
+    2 - Créditos
+    3 - Sair
     
     Sua opção:
     """)

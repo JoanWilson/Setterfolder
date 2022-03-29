@@ -25,7 +25,7 @@ class Operations {
             "Pictures": ["jpg", "jpeg", "jfif", "pjpeg", "pjp", "psd", "webp", "png", "svg", "gif"],
             "Music": ["3gp", "aa", "aac", "aax", "act", "aiff", "alac", "amr", "ape", "au", "awb", "flac", "m4p", "mp3", "webm", "ogg", "wav"],
             "Movies": ["mp4", "mov", "flv", "avi"],
-            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx"]
+            "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx", "ttf", "dmg", "exe"]
         ]
         
         //Armazenamento de todos os paths do diretório a ser organizado

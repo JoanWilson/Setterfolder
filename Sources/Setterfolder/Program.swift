@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Joan Wilson Oliveira on 17/03/22.
 //
@@ -33,7 +33,7 @@ class Program {
 """)
         repeat{
             self.showMenu()
-        } while (app.getOption() != "5")
+        } while (app.getOption() != "3")
         
     }
     
@@ -47,15 +47,15 @@ class Program {
         
         
         switch app.getOption() {
+//            case "1":
+//                app.moveFilesFromDesktop()
+//            case "2":
+//                app.moveFilesFromDownloads()
             case "1":
-                app.moveFilesFromDesktop()
-            case "2":
-                app.moveFilesFromDownloads()
-            case "3":
                 app.moveFilesFromAnyDirectory()
-            case "4":
+            case "2":
                 app.showCredits()
-            case "5":
+            case "3":
                 app.leaveProgram()
             default:
             app.wrongValueTreatment()
