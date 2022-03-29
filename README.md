@@ -10,6 +10,9 @@
 
 > Setterfolder é um programa de terminal criado com Swift e gerenciado pelo SPM (Swift Package Manager), que organiza suas pastas Downloads, Desktop ou qualquer pasta especificada. Ele consegue reconhecer o tipo do arquivo no diretório e enviar para as pastas comuns (Pictures, Movies, Music, Documents e etc).
 
+## 🔧 Resolução de problemas
+Por conta dos recentes Bugs encontrados, as opções para organizar Desktop e Download diretamente, são desativas. Para organizar, basta digitar o diretório SEM UMA BARRA NO FINAL.
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
