@@ -36,23 +36,25 @@ class Interface {
         return "Project made by Joan Wilson Martins de Oliveira, Apple Developer Academy Intern | IFCE |"
     }
     
-    func loadingAnimation() {
-        let animation = PercentProgressAnimation(
-          stream: stdoutStream,
-          header: "⏱ Organizando sua pasta...")
-
-        for i in 0...100 {
-          let second: Double = 1_000_000
-            usleep(UInt32(second * 0.0051))
-          animation.update(step: i, total: 100, text: "Carregando..")
-        }
-
-        animation.complete(success: true)
-        print("Feito! 🚀")
-    }
+    
+    //Pacote Depreciado
+//    func loadingAnimation() {
+//        let animation = PercentProgressAnimation(
+//          stream: stdoutStream,
+//          header: "⏱ Organizando sua pasta...")
+//
+//        for i in 0...100 {
+//          let second: Double = 1_000_000
+//            usleep(UInt32(second * 0.0051))
+//          animation.update(step: i, total: 100, text: "Carregando..")
+//        }
+//
+//        animation.complete(success: true)
+//        print("Feito! 🚀")
+//    }
     
     func showOption(folder: String) {
-        self.loadingAnimation()
+        //self.loadingAnimation()
         print("\(folder), será organizada agora!")
         
     }
@@ -86,8 +88,9 @@ class Interface {
             print("Strings vazias não são válidas")
         } else {
             do {
-                app.loadingAnimation()
+                //app.loadingAnimation()
                 try operation.organise(path: pathUserString)
+                print("\n Feito! ✨ ")
             } catch {
                 print("Path não encontrado!")
             }

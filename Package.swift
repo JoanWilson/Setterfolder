@@ -6,13 +6,11 @@ import PackageDescription
 let package = Package(
     name: "Setterfolder",
     platforms: [.macOS(.v10_12)],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-tools-support-core.git", branch: "main"),
-    ],
+    dependencies: [],
     targets: [
         .executableTarget(
             name: "Setterfolder",
-            dependencies: [.product(name: "SwiftToolsSupport", package: "swift-tools-support-core")]),
+            dependencies: []),
         .testTarget(
             name: "SetterfolderTests",
             dependencies: ["Setterfolder"]),
