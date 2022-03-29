@@ -19,7 +19,7 @@ class OperationsTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        sut.removeAFileInAFolder(file: testFile, folderPath: "Downloads")
+
         sut = nil
     }
 
@@ -28,7 +28,7 @@ class OperationsTest: XCTestCase {
         sut.createAFileInAFolder(file:testFile, folderPath: "Downloads")
         programInterface.moveFilesFromDownloads()
         var fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
-        
+        sut.removeAFileInAFolder(file: testFile, folderPath: "Downloads")
         XCTAssertTrue(fileWasFound)
         fileWasFound = false
 
@@ -39,7 +39,7 @@ class OperationsTest: XCTestCase {
         sut.createAFileInAFolder(file:testFile, folderPath: "Desktop")
         programInterface.moveFilesFromDesktop()
         var fileWasFound = sut.findAFileInAFolder(file: testFile, folderPath: "Documents")
-
+        sut.removeAFileInAFolder(file: testFile, folderPath: "Desktop")
         XCTAssertTrue(fileWasFound)
         fileWasFound = false
     }

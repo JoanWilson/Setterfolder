@@ -17,9 +17,9 @@ class Interface {
     
     
     func showMessageOptions(){
+        self.lineBar()
         print(
     """
-    ==============================================
     Seja Bem-vindo ao SetterFolder, o organizador
     de pastas para macOS,Para começar, digite
     uma das opções abaixo:
@@ -54,7 +54,6 @@ class Interface {
     }
     
     func showOption(folder: String) {
-        self.lineBar()
         self.loadingAnimation()
         print("\(folder), será organizada agora!")
         
@@ -113,7 +112,7 @@ class Interface {
     }
     
     func lineBar(){
-        print("==================================================================")
+        print("")
     }
     
     func getOption() -> String{

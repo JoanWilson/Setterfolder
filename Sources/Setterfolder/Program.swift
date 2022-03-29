@@ -22,6 +22,15 @@ class Program {
     
     //Mantém o programa em Loop
     func startProgram() throws {
+        print("""
+         .-.                           .-.      .     .
+   .--.-'       /      /              / -'     /     /
+  (  (_) .-.---/------/---.-.  ).--.-/--.-._. / .-../   .-.  ).--.
+   `-. ./.-'_ /      /  ./.-'_/     /  (   ) / (   /  ./.-'_/
+ _    )(__.' /      /   (__.'/   `.'    `-'_/_.-`-'-..(__.'/
+(_.--'
+
+""")
         repeat{
             self.showMenu()
         } while (app.getOption() != "5")
