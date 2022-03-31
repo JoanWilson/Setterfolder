@@ -9,10 +9,10 @@ import Cocoa
 
 class Operations {
     
-    //Declara File Manager
+ 
     let fileManager = FileManager.default
     
-    //Método que organiza a pasta, ele recebe o PATH completo em formato de String
+    
     func organise(path: String?) throws {
         
         //Manipulação do Path, caso seja inválido, o diretório Downloads está como padrão em defaultPath
@@ -20,7 +20,7 @@ class Operations {
         let defaultPath = commonPath.appendingPathComponent("Downloads").absoluteString
         let pathURL = URL(fileURLWithPath: path?.trimmingCharacters(in: .whitespacesAndNewlines) ?? defaultPath)
         
-        //Dicionário de todos os tipos. Aqui o método organise() irá somente reconher arquivos com esses tipos e seus respectivos diretórios destino
+        
         let fileTypesDictionary: [String : Array<String>] = [
             "Pictures": ["jpg", "jpeg", "jfif", "pjpeg", "pjp", "psd", "webp", "png", "svg", "gif"],
             "Music": ["3gp", "aa", "aac", "aax", "act", "aiff", "alac", "amr", "ape", "au", "awb", "flac", "m4p", "mp3", "webm", "ogg", "wav"],
@@ -28,7 +28,7 @@ class Operations {
             "Documents": ["zip", "pdf", "paper", "docx", "doc", "txt", "xls", "ppt", "ttf", "key", "xlsx", "ttf", "dmg", "exe"]
         ]
         
-        //Armazenamento de todos os paths do diretório a ser organizado
+        
         let folderFiles = try fileManager.contentsOfDirectory(
             at: pathURL,
             includingPropertiesForKeys: nil,
@@ -46,7 +46,7 @@ class Operations {
         }
         
         
-        //Move cada arquivo da pasta escolhida para seus respectivos diretórios
+        
         for (key, values) in fileTypesDictionary {
             for value in values {
                 let filter = try folderFiles.filter({(path: URL) throws -> Bool in
