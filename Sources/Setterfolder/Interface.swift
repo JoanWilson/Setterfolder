@@ -23,8 +23,10 @@ class Interface {
     uma das opções abaixo:
     
     1 - Organizar sua pasta
-    2 - Créditos
-    3 - Sair
+    2 - Organizar Downloads
+    3 - Organizar Desktop
+    4 - Créditos
+    5 - Sair
     
     Sua opção:
     """)
@@ -60,8 +62,10 @@ class Interface {
     func moveFilesFromDesktop(){
         self.lineBar()
         self.showOption(folder: "Desktop")
+        let path = operation.getDirectoryThroughRoot(folder: "Desktop")
         do {
-            try operation.organise(path: "/Users/joanwilsonoliveira/Desktop")
+            try operation.organise(path: path)
+            print("\n Feito! ✨ ")
         } catch {
             print("Erro ao organizar sua pasta")
             
@@ -71,8 +75,10 @@ class Interface {
     func moveFilesFromDownloads() {
         self.lineBar()
         self.showOption(folder: "Downloads")
+        let path = operation.getDirectoryThroughRoot(folder: "Downloads")
         do {
-            try operation.organise(path: "/Users/joanwilsonoliveira/Downloads")
+            try operation.organise(path: path)
+            print("\n Feito! ✨ ")
         } catch {
             print("Erro ao organizar sua pasta")
         }

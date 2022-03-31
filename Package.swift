@@ -6,11 +6,15 @@ import PackageDescription
 let package = Package(
     name: "Setterfolder",
     platforms: [.macOS(.v10_12)],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/QiuZhiFei/swift-commands.git", .upToNextMajor(from: "0.6.0")),
+    ],
     targets: [
         .executableTarget(
             name: "Setterfolder",
-            dependencies: []),
+            dependencies: [.product(
+                name: "Commands",
+                package: "swift-commands")]),
         .testTarget(
             name: "SetterfolderTests",
             dependencies: ["Setterfolder"]),

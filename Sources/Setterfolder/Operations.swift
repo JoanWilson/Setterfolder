@@ -6,6 +6,7 @@
 //
 import Foundation
 import Cocoa
+import Commands
 
 class Operations {
     
@@ -19,6 +20,7 @@ class Operations {
         let commonPath = fileManager.homeDirectoryForCurrentUser
         let defaultPath = commonPath.appendingPathComponent("Downloads").absoluteString
         let pathURL = URL(fileURLWithPath: path?.trimmingCharacters(in: .whitespacesAndNewlines) ?? defaultPath)
+        
         
         
         let fileTypesDictionary: [String : Array<String>] = [
@@ -102,6 +104,20 @@ class Operations {
         return fileWasFound
     }
 
+    
+    func getDirectoryThroughRoot(folder: String) -> String {
+        let input = Commands.Task.run("bash -c cd ~ && cd \(folder) && pwd")
+        var path: String?
+        switch input {
+        case .Success(let request, let response):
+            path = response.output
+        case .Failure(let request, response: let response):
+            debugPrint("command: \(request.absoluteCommand), success output: \(response.output)")
+        }
+        
+        
+        return path!
+    }
     
     
     

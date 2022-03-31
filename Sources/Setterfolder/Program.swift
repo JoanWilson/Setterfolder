@@ -31,7 +31,7 @@ class Program {
 """)
         repeat{
             self.showMenu()
-        } while (app.getOption() != "3")
+        } while (app.getOption() != "5")
         
     }
     
@@ -45,15 +45,15 @@ class Program {
         
         
         switch app.getOption() {
-//            case "1":
-//                app.moveFilesFromDesktop()
-//            case "2":
-//                app.moveFilesFromDownloads()
             case "1":
                 app.moveFilesFromAnyDirectory()
             case "2":
-                app.showCredits()
+                app.moveFilesFromDownloads()
             case "3":
+                app.moveFilesFromDesktop()
+            case "4":
+                app.showCredits()
+            case "5":
                 app.leaveProgram()
             default:
             app.wrongValueTreatment()
